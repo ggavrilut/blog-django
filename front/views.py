@@ -6,3 +6,7 @@ class HomeView(TemplateView):
     def get(self, request):
         
         return render(request, self.template_name)
+
+
+class AboutView(TemplateView):
+    template_name = 'front/about.html' 

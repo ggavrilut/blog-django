@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>{% block title %}Builder{% endblock title %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+            <link rel="stylesheet" href="{% static "css/styles.css" %}">
+        {% endblock stylesheets %}
+        
+    </head>
+    <body>
+        {% block navbar %}
+            {% include 'front/navbar.html' %}
+        {% endblock navbar %}
+
+        <main role="main" class="container">
+            {% block content %}
+                <h1>Homepage</h1>
+            {% endblock content %}
+        </main>
+        {% block javascripts %}
+            <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+            <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        {% endblock javascripts %}
+    </body>
+</html>
