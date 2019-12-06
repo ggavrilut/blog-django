@@ -3,3 +3,7 @@
 {% block title %}About Builder{% endblock title %}
 
 {% block content %}About{% endblock content %}
+
+{% block navbar %}
+    {% include 'front/navbar.html' with active_page='about' %}
+{% endblock navbar %}

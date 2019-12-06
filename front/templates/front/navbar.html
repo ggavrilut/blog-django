@@ -6,11 +6,14 @@
 
     <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'homepage' %}">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item {% if active_page|default:'home' == 'home' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'homepage' %}">Home</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {% if active_page|default:'home' == 'about' %}active{% endif %}">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item {% if active_page|default:'home' == 'contact' %}active{% endif %}">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
             </li>
         </ul>
     </div>

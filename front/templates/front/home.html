@@ -1,1 +1,27 @@
 {% extends 'front/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h1>Homepage</h1>
+    <div id="test-1">Test div</div>
+    <button class="btn btn-primary" id="trigger1">Trigger1</button>
+    <button class="btn btn-primary" id="trigger2">Trigger2</button>
+
+    <div id="input-wrapper">
+        <input type="text" name="input-1"/>
+        <select name="select-1" id="select-1" data-url="{% url 'home_content' 'placeholder' %}">
+            <option value="1">option 1</option>
+            <option value="2">option 2</option>
+            <option value="3">option 3</option>
+        </select>
+    </div>
+    <div id="results-wrapper"></div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ block.super }}
+
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock javascripts %}

@@ -1,0 +1,33 @@
+{% extends 'front/base.html' %}
+
+{% block title %}Contact{% endblock title %}
+
+{% block content %}
+    <h1>Contact V1!</h1> 
+    
+    <div class="btn-group mb-4" role="group" aria-label="Basic example">
+        <a href="{% url 'contact' %}" class="btn btn-secondary">Contact</a>
+        <a href="{% url 'contact_v1' %}" class="btn btn-secondary">Contact v1</a>
+        <a href="{% url 'contact_v2' %}" class="btn btn-secondary">Contact v2</a>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="row">
+        <div class="col-12">
+            <form action='{% url 'contact_v2' %}' method='post'  enctype="multipart/form-data"> 
+                {{form}}
+                <input type = 'submit' value = 'send'/>  
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block navbar %}
+    {% include 'front/navbar.html' with active_page='contact' %}
+{% endblock navbar %}
